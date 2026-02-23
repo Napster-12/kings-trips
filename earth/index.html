@@ -1,526 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KingSTrips | Luxury Trips, Lifetime Memories</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KingSTrips | Luxury Trips, Lifetime Memories</title>
 
-  <!-- Bootstrap 5 (clean grid & components) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Font: Inter + Playfair for elegance -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Bootstrap Icons (full set) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <style>
-    /* --------------------------------------------
-       HUMANIZED & REFINED — with UPCOMING TRIPS added
-       (preserving your words & the new trip section)
-    -------------------------------------------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1e2e3e;
+  background: #ffffff;
+}
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: #1e2e3e;
-      background-color: #ffffff;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+/* NAVBAR */
+.navbar {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  padding: 1.2rem 0;
+}
 
-    /* ----- NAVBAR (fresh, airy) ----- */
-    .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
-      padding: 0.9rem 0;
-    }
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: #1d4a6e !important;
-      letter-spacing: -0.02em;
-    }
-    .navbar-brand i {
-      color: #8b6f4c;
-      margin-right: 4px;
-    }
-    .nav-link {
-      font-weight: 500;
-      margin-left: 1.8rem;
-      color: #1e3e55 !important;
-      position: relative;
-      padding-bottom: 4px;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #b1946e;
-      transition: 0.2s;
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
+.navbar-brand img {
+  height: 85px;
+  width: auto;
+}
 
-    /* ----- HERO (more depth, your copy) ----- */
-    .hero {
-      height: 90vh;
-      background-image: url('images/hero.jpeg');
-      background-size: cover;
-      background-position: center 30%;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(115deg, rgba(10, 30, 45, 0.7) 0%, rgba(0, 0, 0, 0.35) 70%);
-    }
-    .hero-content {
-      position: relative;
-      color: white;
-      max-width: 650px;
-      padding: 1.5rem 0;
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
-      line-height: 1.2;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      font-weight: 300;
-      opacity: 0.95;
-    }
+.nav-link {
+  font-weight: 500;
+  margin-left: 1.5rem;
+  color: #1e3e55 !important;
+}
 
-    .btn-main {
-      background: #1e5d8e;
-      border: none;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      color: white;
-      box-shadow: 0 10px 20px -8px rgba(0, 40, 70, 0.4);
-      transition: 0.2s;
-    }
-    .btn-main:hover {
-      background: #13487a;
-      transform: translateY(-2px);
-      box-shadow: 0 18px 25px -10px #0b2d4a;
-    }
+/* VIDEO HERO */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
 
-    /* ----- SECTIONS (consistent spacing) ----- */
-    .section {
-      padding: 90px 0;
-    }
-    .section-title {
-      font-weight: 700;
-      font-size: 2.4rem;
-      margin-bottom: 2rem;
-      color: #1d3d5a;
-      letter-spacing: -0.01em;
-    }
-    .section-title:after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: #c6ad84;
-      margin: 1rem auto 0;
-      border-radius: 2px;
-    }
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
 
-    .lead {
-      font-size: 1.25rem;
-      font-weight: 350;
-      color: #2f4a62;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(10,30,45,0.75), rgba(10,30,45,0.55));
+  z-index: 2;
+}
 
-    /* ----- SERVICE CARDS (elegant, with icons) ----- */
-    .service-card {
-      border: none;
-      padding: 2.8rem 1.8rem;
-      border-radius: 28px;
-      transition: 0.25s ease;
-      background: #f6fafd;
-      height: 100%;
-      box-shadow: 0 10px 20px rgba(0, 30, 50, 0.02);
-    }
-    .service-card:hover {
-      transform: translateY(-8px);
-      background: #ffffff;
-      box-shadow: 0 25px 35px -12px rgba(20, 70, 110, 0.12);
-    }
-    .service-card i {
-      font-size: 2.6rem;
-      color: #1e5d8e;
-      margin-bottom: 1.5rem;
-    }
-    .service-card h5 {
-      font-weight: 700;
-      font-size: 1.7rem;
-      color: #1d3d5a;
-      margin-bottom: 0.8rem;
-    }
-    .service-card p {
-      color: #365b79;
-      font-size: 1rem;
-    }
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 750px;
+}
 
-    /* ----- DESTINATION CARDS (gentle lift) ----- */
-    .destination-card {
-      border: none;
-      border-radius: 24px;
-      overflow: hidden;
-      transition: 0.3s;
-      background: white;
-      box-shadow: 0 14px 28px -8px rgba(0, 40, 60, 0.08);
-    }
-    .destination-card:hover {
-      transform: scale(1.02) translateY(-6px);
-      box-shadow: 0 30px 40px -14px #1e405b;
-    }
-    .destination-card img {
-      height: 250px;
-      object-fit: cover;
-      transition: 0.4s;
-    }
-    .destination-card:hover img {
-      transform: scale(1.05);
-    }
-    .destination-card .card-body {
-      padding: 1.2rem 0.5rem;
-    }
-    .destination-card h5 {
-      font-weight: 700;
-      color: #1d3d5a;
-      font-size: 1.8rem;
-      margin-bottom: 0;
-    }
+.hero h1 {
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
 
-    /* ----- UPCOMING TRIPS (newly added, styled to match elegance) ----- */
-    .trip-card {
-      border: none;
-      border-radius: 32px;
-      transition: 0.3s;
-      background: white;
-      box-shadow: 0 20px 35px -12px rgba(27, 59, 79, 0.08);
-      padding: 2rem;
-      height: 100%;
-    }
-    .trip-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 45px -12px #b1946e;
-    }
-    .trip-card h4 {
-      font-weight: 700;
-      color: #1d3d5a;
-      font-family: 'Playfair Display', serif;
-    }
-    .trip-card .badge {
-      background: #8b6f4c !important;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      padding: 8px 14px;
-      border-radius: 40px;
-    }
-    .trip-card hr {
-      opacity: 0.25;
-      color: #b1946e;
-    }
-    .trip-card ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .trip-card ul li {
-      padding: 5px 0 5px 24px;
-      position: relative;
-    }
-    .trip-card ul li:before {
-      content: '✓';
-      color: #b1946e;
-      font-weight: 700;
-      position: absolute;
-      left: 0;
-    }
-    .text-primary {
-      color: #1e5d8e !important;
-    }
+.hero p {
+  font-size: 1.2rem;
+}
 
-    /* ----- CONTACT (warm panel with social icons from new code) ----- */
-    .contact-section {
-      background: linear-gradient(125deg, #1b5279, #123b57);
-      color: white;
-      border-radius: 48px;
-      padding: 4rem 2rem;
-      box-shadow: 0 30px 40px -16px #102c3f;
-    }
-    .contact-section h2 {
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 1.2rem;
-    }
-    .contact-section p {
-      font-size: 1.2rem;
-      margin-bottom: 0.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .contact-section i {
-      font-size: 1.6rem;
-      color: #e9d2b0;
-    }
-    .contact-section a {
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(255,255,200,0.4);
-    }
-    .contact-section a:hover {
-      border-bottom: 1px solid #f3d9b1;
-    }
-    .social-icon {
-      font-size: 1.8rem;
-      color: white;
-      background: rgba(255,255,255,0.12);
-      padding: 10px 16px;
-      border-radius: 50%;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-    }
-    .social-icon:hover {
-      background: white;
-      color: #1e5d8e;
-      transform: translateY(-5px);
-    }
+.btn-main {
+  background: #1e5d8e;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: white;
+  margin-top: 20px;
+}
 
-    /* ----- FOOTER (clean, calm) ----- */
-    .footer {
-      background: #eef3f8;
-      padding: 24px 0;
-      text-align: center;
-      margin-top: 40px;
-      color: #2b4c6b;
-      border-top: 1px solid #d8e2ed;
-    }
+.section {
+  padding: 90px 0;
+}
 
-    /* mobile fine-tuning */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.6rem; }
-      .section { padding: 70px 0; }
-    }
-  </style>
+.section-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  color: #1d3d5a;
+  text-align: center;
+}
+
+.service-card,
+.trip-card {
+  background: #f6fafd;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+  height: 100%;
+}
+
+.destination-card {
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px -8px rgba(0, 40, 60, 0.08);
+}
+
+.destination-card img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.contact-section {
+  background: linear-gradient(125deg, #1b5279, #123b57);
+  color: white;
+  border-radius: 48px;
+  padding: 4rem 2rem;
+}
+
+.footer {
+  background: #eef3f8;
+  padding: 24px 0;
+  text-align: center;
+  color: #2b4c6b;
+}
+
+@media(max-width:768px){
+  .navbar-brand img {
+    height: 65px;
+  }
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+}
+</style>
 </head>
 <body>
 
-<!-- ===== NAVBAR (refined, now includes Upcoming Trips link) ===== -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><i class="bi bi-tree"></i> KingSTrips</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="">Destinations</a></li>
-        <li class="nav-item"><a class="nav-link" href="#upcoming">Upcoming Trips</a></li>   <!-- new nav item -->
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+<div class="container">
+<a class="navbar-brand" href="#">
+  <img src="images/logo.jpg" alt="KingSTrips Logo">
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="menu">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+    <li class="nav-item"><a class="nav-link" href="#upcoming">Upcoming Trips</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+  </ul>
+</div>
+</div>
 </nav>
 
-<!-- ===== HERO (updated button to point to upcoming trips) ===== -->
+<!-- VIDEO HERO -->
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <h1>Luxury Trips. Lifetime Memories.</h1>
-    <p>Professional group travel, school trips, and customised travel experiences across South Africa and neighbouring countries.</p>
-    <a href="#upcoming" class="btn btn-main mt-4">View Upcoming Trips</a>   <!-- updated link -->
-  </div>
+<video autoplay muted loop playsinline>
+  <source src="images/hero.mp4" type="video/mp4">
+</video>
+<div class="hero-overlay"></div>
+
+<div class="container hero-content">
+  <h1>Luxury Trips. Lifetime Memories.</h1>
+  <p>Professional group travel, school trips, and customised travel experiences across South Africa and neighbouring countries.</p>
+  <a href="#upcoming" class="btn btn-main">View Upcoming Trips</a>
+</div>
 </section>
 
-<!-- ===== ABOUT (your words) ===== -->
+<!-- ABOUT -->
 <section id="about" class="section text-center">
-  <div class="container">
-    <h2 class="section-title">About KingSTrips</h2>
-    <p class="lead">We specialise in safe, affordable and professionally managed school trips, group tours, corporate retreats and church travel experiences.</p>
-  </div>
+<div class="container">
+  <h2 class="section-title">About KingSTrips</h2>
+  <p class="lead">We specialise in safe, affordable and professionally managed school trips, group tours, corporate retreats and church travel experiences.</p>
+</div>
 </section>
 
-<!-- ===== SERVICES (with icons) ===== -->
+<!-- SERVICES -->
 <section id="services" class="section bg-light">
-  <div class="container">
-    <h2 class="text-center section-title">Our Services</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="service-card text-center">
-          <i class="bi bi-backpack"></i>
-          <h5>School Trips</h5>
-          <p>Educational tours, grade camps and heritage visits.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card text-center">
-          <i class="bi bi-people"></i>
-          <h5>Group & Leisure Tours</h5>
-          <p>Durban, Cape Town, Maputo and customised travel packages.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="service-card text-center">
-          <i class="bi bi-briefcase"></i>
-          <h5>Corporate & Church Trips</h5>
-          <p>Team-building retreats, conferences and organised outings.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Our Services</h2>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="service-card text-center">
+<i class="bi bi-backpack fs-1 text-primary"></i>
+<h5 class="fw-bold mt-3">School Trips</h5>
+<p>Educational tours, grade camps and heritage visits.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="service-card text-center">
+<i class="bi bi-people fs-1 text-primary"></i>
+<h5 class="fw-bold mt-3">Group & Leisure Tours</h5>
+<p>Durban, Cape Town, Maputo and customised travel packages.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="service-card text-center">
+<i class="bi bi-briefcase fs-1 text-primary"></i>
+<h5 class="fw-bold mt-3">Corporate & Church Trips</h5>
+<p>Team-building retreats, conferences and organised outings.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ===== DESTINATIONS (unchanged) ===== -->
+<!-- DESTINATIONS -->
 <section id="destinations" class="section">
-  <div class="container">
-    <h2 class="text-center section-title">Popular Destinations</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card destination-card">
-          <img src="/images/durban.jpg" class="card-img-top" alt="Durban">
-          <div class="card-body text-center">
-            <h5>Durban</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card destination-card">
-          <img src="/images/capetown.jpg" class="card-img-top" alt="Cape Town">
-          <div class="card-body text-center">
-            <h5>Cape Town</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card destination-card">
-          <img src="/images/school.jpg" class="card-img-top" alt="School Trip">
-          <div class="card-body text-center">
-            <h5>SCHOOL TRIP</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Popular Destinations</h2>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="destination-card">
+<img src="images/durban.jpg" class="card-img-top" alt="Durban">
+<div class="card-body text-center"><h5>Durban</h5></div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="destination-card">
+<img src="images/capetown.jpg" class="card-img-top" alt="Cape Town">
+<div class="card-body text-center"><h5>Cape Town</h5></div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="destination-card">
+<img src="images/school.jpg" class="card-img-top" alt="School Trip">
+<div class="card-body text-center"><h5>School Trip</h5></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ===== UPCOMING TRIPS (integrated from your booking code) ===== -->
+<!-- UPCOMING TRIPS -->
 <section id="upcoming" class="section bg-light">
-  <div class="container">
-    <h2 class="text-center section-title">Upcoming Trips</h2>
-    <div class="row g-4">
-      <!-- Namibia International Trip (exact wording) -->
-      <div class="col-lg-6">
-        <div class="trip-card">
-          <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <h4 class="fw-bold">Namibia International Trip</h4>
-            <span class="badge bg-danger">Exclusive to 8 People</span>
-          </div>
-          <p class="text-muted mt-2"><i class="bi bi-calendar"></i> 24 September 2026</p>
-          <h5 class="text-primary">R13 530 Per Person</h5>
-          <h6 class="text-secondary">R24 000 For 2 People</h6>
-          <hr>
-          <ul class="small">
-            <li>Transport to OR Tambo</li>
-            <li>Return Flights</li>
-            <li>Transport to activities</li>
-            <li>3 Nights Accommodation</li>
-            <li>Daily Breakfast</li>
-            <li>Boat Cruise</li>
-            <li>Printed T-Shirt</li>
-            <li>Windhoek City Tour</li>
-            <li>Desert Scenic Drive</li>
-            <li>Local Craft Market</li>
-            <li>Daan Viljoen Nature Reserve</li>
-          </ul>
-          <a href="#contact" class="btn btn-main w-100 mt-3">Reserve Your Spot</a>
-        </div>
-      </div>
-      <!-- Durban Experience (exact wording) -->
-      <div class="col-lg-6">
-        <div class="trip-card">
-          <h4 class="fw-bold">Durban Experience</h4>
-          <p class="text-muted mt-2"><i class="bi bi-calendar"></i> 1 – 4 October 2026</p>
-          <hr>
-          <ul class="small">
-            <li>Transport</li>
-            <li>3 Nights Accommodation</li>
-            <li>Daily Breakfast</li>
-            <li>Boat Cruise</li>
-            <li>Printed KingSTrips T-Shirt</li>
-            <li>Durban Tour</li>
-            <li>Durban Night Life</li>
-            <li>South Beach Experience</li>
-            <li>Eyadini</li>
-          </ul>
-          <a href="#contact" class="btn btn-main w-100 mt-3">Book Durban Trip</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h2 class="section-title">Upcoming Trips</h2>
+<div class="row g-4">
+
+<div class="col-lg-6">
+<div class="trip-card">
+<h4 class="fw-bold">Namibia International Trip</h4>
+<p><i class="bi bi-calendar"></i> 24 September 2026</p>
+<p class="fw-bold text-primary">R13 530 Per Person</p>
+<a href="#contact" class="btn btn-main w-100 mt-3">Reserve Your Spot</a>
+</div>
+</div>
+
+<div class="col-lg-6">
+<div class="trip-card">
+<h4 class="fw-bold">Durban Experience</h4>
+<p><i class="bi bi-calendar"></i> 1 – 4 October 2026</p>
+<a href="#contact" class="btn btn-main w-100 mt-3">Book Durban Trip</a>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- ===== CONTACT (with social icons from your booking code) ===== -->
+<!-- CONTACT -->
 <section id="contact" class="section">
-  <div class="container">
-    <div class="contact-section text-center">
-      <h2>Contact Us</h2>
-      <div class="mt-4">
-        <p><i class="bi bi-telephone-fill me-2"></i> <a href="tel:+27647625369">064 762 5369</a> | <a href="tel:+27672987440">067 298 7440</a></p>
-        <p><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:mathebulathulani377@gmail.com">mathebulathulani377@gmail.com</a></p>
-      </div>
-      <div class="mt-4 d-flex justify-content-center gap-4">
-        <a href="https://facebook.com/KingS Trips" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
-        <a href="https://instagram.com/kingstrips" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
-        <a href="https://tiktok.com/@kingstrips" target="_blank" class="social-icon"><i class="bi bi-tiktok"></i></a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="contact-section text-center">
+<h2>Contact Us</h2>
+<p>064 762 5369 | 067 298 7440</p>
+<p>mathebulathulani377@gmail.com</p>
+</div>
+</div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <div class="container">
-    <p>© 2026 KingSTrips (Pty) Ltd | All Rights Reserved</p>
-  </div>
+<div class="container">
+<p>© 2026 KingSTrips (Pty) Ltd | All Rights Reserved</p>
+</div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
