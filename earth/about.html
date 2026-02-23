@@ -8,7 +8,6 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
     body {
@@ -37,28 +36,54 @@
       color: #1e3e55 !important;
     }
 
-    /* HERO */
+    /* VIDEO HERO */
     .hero-about {
-      background: linear-gradient(120deg, rgba(10,30,45,0.85), rgba(10,30,45,0.6)),
-      url('images/hero.jfif');
-      background-size: cover;
-      background-position: center;
-      height: 75vh;
+      position: relative;
+      height: 85vh;
       display: flex;
       align-items: center;
+      justify-content: center;
       text-align: center;
       color: white;
+      overflow: hidden;
+    }
+
+    .hero-about video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(10,30,45,0.75),
+        rgba(10,30,45,0.55)
+      );
+      z-index: 2;
     }
 
     .hero-content {
-      max-width: 800px;
-      margin: auto;
+      position: relative;
+      z-index: 3;
+      max-width: 850px;
     }
 
     .hero-about h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       font-weight: 700;
+    }
+
+    .hero-about p {
+      font-size: 1.2rem;
     }
 
     .btn-main {
@@ -83,20 +108,20 @@
       text-align: center;
     }
 
-    .founder-img {
-      border-radius: 25px;
-      box-shadow: 0 25px 45px rgba(0,0,0,0.15);
-      width: 100%;
-      max-height: 450px;
-      object-fit: cover;
-    }
-
     .info-card {
       background: #f6fafd;
       padding: 40px;
       border-radius: 30px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.05);
       height: 100%;
+    }
+
+    .founder-img {
+      border-radius: 25px;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
     }
 
     .stats {
@@ -150,18 +175,23 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- VIDEO HERO -->
 <section class="hero-about">
+  <video autoplay muted loop playsinline>
+    <source src="images/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
   <div class="container hero-content">
     <h1>About KingSTrips</h1>
     <p class="lead mt-3">
-      A trusted travel company delivering safe, organised and unforgettable group experiences across Southern Africa.
+      Delivering safe, organised and unforgettable group travel experiences across Southern Africa.
     </p>
     <a href="#founder" class="btn btn-main">Meet Our Founder</a>
   </div>
 </section>
 
-<!-- COMPANY INFO -->
+<!-- WHO WE ARE -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Who We Are</h2>
@@ -170,13 +200,16 @@
         <div class="info-card">
           <h4 class="fw-bold mb-3">Our Company</h4>
           <p>
-            KingSTrips is a professional travel company specialising in school tours, group trips,
-            corporate retreats, church travel and customised leisure packages.
+            KingSTrips is a professional travel company specialising in school tours, 
+            church trips, corporate retreats and customised leisure experiences.
           </p>
           <p>
-            We focus on safety, comfort and structured planning to ensure every trip runs smoothly.
-            Our team carefully manages accommodation, transport, meals and activities to deliver
-            premium travel experiences at affordable prices.
+            We manage accommodation, transport, meals and activities to ensure
+            each trip is smooth, safe and memorable.
+          </p>
+          <p>
+            Our mission is to create meaningful journeys that bring people together,
+            build memories and inspire exploration.
           </p>
         </div>
       </div>
@@ -187,9 +220,9 @@
           <ul>
             <li>✔ Professional planning & coordination</li>
             <li>✔ Safe and reliable transport</li>
-            <li>✔ Quality accommodation partners</li>
+            <li>✔ Trusted accommodation partners</li>
             <li>✔ Affordable group packages</li>
-            <li>✔ Excellent customer service</li>
+            <li>✔ Exceptional customer service</li>
           </ul>
         </div>
       </div>
@@ -197,7 +230,7 @@
   </div>
 </section>
 
-<!-- FOUNDER SECTION WITH PHOTO -->
+<!-- FOUNDER -->
 <section id="founder" class="section bg-light">
   <div class="container">
     <h2 class="section-title">Meet the Founder</h2>
@@ -209,20 +242,19 @@
         <h3 class="fw-bold">Thulani Blessing Mathebula</h3>
         <p class="lead">Founder & Managing Director</p>
         <p>
-          Thulani founded KingSTrips with a clear vision — to build a trusted travel brand
-          that delivers safe, organised and premium group experiences.
+          Thulani founded KingSTrips with a vision to build a trusted travel brand
+          focused on safety, professionalism and excellence.
         </p>
         <p>
-          His leadership focuses on professionalism, reliability and customer satisfaction.
-          Through passion and dedication, he continues to grow KingSTrips into a respected
-          name in the travel industry.
+          His leadership ensures every trip is carefully planned and executed
+          to deliver unforgettable experiences for every client.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPANY STATS -->
+<!-- STATS -->
 <section class="stats text-center">
   <div class="container">
     <div class="row">
@@ -252,4 +284,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
