@@ -23,13 +23,12 @@
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-      padding: 1.2rem 0;   /* Slightly taller for bigger logo */
+      padding: 1.2rem 0;
     }
 
     .navbar-brand img {
-      height: 85px;   /* Increased logo size */
+      height: 85px;
       width: auto;
-      transition: 0.3s ease;
     }
 
     .nav-link {
@@ -40,7 +39,7 @@
 
     /* HERO */
     .hero-about {
-      background: linear-gradient(120deg, rgba(10,30,45,0.85), rgba(10,30,45,0.5)),
+      background: linear-gradient(120deg, rgba(10,30,45,0.85), rgba(10,30,45,0.6)),
       url('images/hero.jfif');
       background-size: cover;
       background-position: center;
@@ -49,11 +48,10 @@
       align-items: center;
       text-align: center;
       color: white;
-      position: relative;
     }
 
     .hero-content {
-      max-width: 750px;
+      max-width: 800px;
       margin: auto;
     }
 
@@ -61,12 +59,6 @@
       font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
       font-weight: 700;
-    }
-
-    .hero-about p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      opacity: 0.95;
     }
 
     .btn-main {
@@ -77,12 +69,6 @@
       font-weight: 600;
       color: white;
       margin-top: 20px;
-      transition: 0.3s;
-    }
-
-    .btn-main:hover {
-      background: #13487a;
-      transform: translateY(-3px);
     }
 
     .section {
@@ -90,11 +76,38 @@
     }
 
     .section-title {
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: #1d3d5a;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       text-align: center;
+    }
+
+    .founder-img {
+      border-radius: 25px;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+    }
+
+    .info-card {
+      background: #f6fafd;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+
+    .stats {
+      background: #1e5d8e;
+      color: white;
+      padding: 70px 0;
+    }
+
+    .stats h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
     }
 
     .footer {
@@ -105,28 +118,22 @@
       border-top: 1px solid #d8e2ed;
     }
 
-    /* Responsive logo adjustment */
     @media(max-width:768px){
+      .navbar-brand img {
+        height: 65px;
+      }
       .hero-about h1{
         font-size:2.2rem;
-      }
-
-      .navbar-brand img {
-        height: 65px;   /* Slightly smaller on mobile */
-      }
-
-      .navbar {
-        padding: 0.9rem 0;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR WITH BIGGER LOGO -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <a class="navbar-brand" href="index.html">
       <img src="images/logo.jpg" alt="KingSTrips Logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -135,7 +142,7 @@
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
       </ul>
@@ -146,28 +153,92 @@
 <!-- HERO -->
 <section class="hero-about">
   <div class="container hero-content">
-    <h1>Discover the Story Behind KingSTrips</h1>
-    <p>
-      Driven by passion. Built on trust. Focused on delivering safe, 
-      professional and unforgettable travel experiences.
+    <h1>About KingSTrips</h1>
+    <p class="lead mt-3">
+      A trusted travel company delivering safe, organised and unforgettable group experiences across Southern Africa.
     </p>
     <a href="#founder" class="btn btn-main">Meet Our Founder</a>
   </div>
 </section>
 
-<!-- FOUNDER SECTION -->
-<section id="founder" class="section">
-  <div class="container text-center">
-    <h2 class="section-title">Thulani Blessing Mathebula</h2>
-    <p class="lead">
-      Founder & Managing Director of KingSTrips.
-    </p>
-    <p>
-      With a strong passion for travel and community development, 
-      Thulani founded KingSTrips to provide safe, organised and 
-      premium travel experiences for schools, churches, corporate 
-      teams and leisure groups.
-    </p>
+<!-- COMPANY INFO -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Who We Are</h2>
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <div class="info-card">
+          <h4 class="fw-bold mb-3">Our Company</h4>
+          <p>
+            KingSTrips is a professional travel company specialising in school tours, group trips,
+            corporate retreats, church travel and customised leisure packages.
+          </p>
+          <p>
+            We focus on safety, comfort and structured planning to ensure every trip runs smoothly.
+            Our team carefully manages accommodation, transport, meals and activities to deliver
+            premium travel experiences at affordable prices.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="info-card">
+          <h4 class="fw-bold mb-3">Why Choose Us</h4>
+          <ul>
+            <li>✔ Professional planning & coordination</li>
+            <li>✔ Safe and reliable transport</li>
+            <li>✔ Quality accommodation partners</li>
+            <li>✔ Affordable group packages</li>
+            <li>✔ Excellent customer service</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER SECTION WITH PHOTO -->
+<section id="founder" class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">Meet the Founder</h2>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 text-center">
+        <img src="images/founder.jpeg" alt="Thulani Blessing Mathebula" class="founder-img">
+      </div>
+      <div class="col-lg-7">
+        <h3 class="fw-bold">Thulani Blessing Mathebula</h3>
+        <p class="lead">Founder & Managing Director</p>
+        <p>
+          Thulani founded KingSTrips with a clear vision — to build a trusted travel brand
+          that delivers safe, organised and premium group experiences.
+        </p>
+        <p>
+          His leadership focuses on professionalism, reliability and customer satisfaction.
+          Through passion and dedication, he continues to grow KingSTrips into a respected
+          name in the travel industry.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY STATS -->
+<section class="stats text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>100+</h3>
+        <p>Happy Travellers</p>
+      </div>
+      <div class="col-md-4">
+        <h3>20+</h3>
+        <p>Successful Trips</p>
+      </div>
+      <div class="col-md-4">
+        <h3>5+</h3>
+        <p>Major Destinations</p>
+      </div>
+    </div>
   </div>
 </section>
 
