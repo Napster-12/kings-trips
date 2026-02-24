@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Trips | KingSTrips</title>
+  <title>Our Trips | KingSTrips - Memories & Adventures</title>
 
   <!-- Bootstrap 5 + Icons + Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
       background: #ffffff;
     }
 
-    /* NAVBAR - exactly as your other pages */
+    /* NAVBAR */
     .navbar {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
@@ -41,9 +41,9 @@
       font-weight: 600;
     }
 
-    /* PAGE HERO - matches contact.html style */
+    /* PAGE HERO */
     .page-hero {
-      background: linear-gradient(rgba(10,30,45,0.75), rgba(10,30,45,0.75)),
+      background: linear-gradient(rgba(10,30,45,0.8), rgba(10,30,45,0.8)),
                   url('images/trips-bg.jpg') center/cover;
       height: 40vh;
       display: flex;
@@ -59,7 +59,7 @@
       font-weight: 700;
     }
 
-    /* SECTION STYLES - matching your index.html */
+    /* SECTIONS */
     .section {
       padding: 90px 0;
     }
@@ -72,6 +72,14 @@
       text-align: center;
     }
 
+    .section-subtitle {
+      text-align: center;
+      color: #6c757d;
+      margin-bottom: 3rem;
+      font-size: 1.2rem;
+    }
+
+    /* TRIP CARDS */
     .trip-card {
       background: #f6fafd;
       padding: 40px;
@@ -147,25 +155,248 @@
       border: 2px solid #1e5d8e;
       color: #1e5d8e;
       font-weight: 600;
-      padding: 12px 28px;
+      padding: 8px 20px;
       border-radius: 50px;
       transition: all 0.3s;
     }
 
-    .btn-outline-main:hover {
+    .btn-outline-main:hover,
+    .btn-outline-main.active {
       background: #1e5d8e;
       color: white;
     }
 
-    .destination-badge {
-      background: white;
-      border-radius: 50px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    /* HISTORY TIMELINE */
+    .history-timeline {
+      position: relative;
+      padding: 2rem 0;
     }
 
-    /* QUICK INFO SECTION - like your contact section but softer */
+    .timeline-item {
+      padding: 2rem;
+      background: #f8fbfe;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      border-left: 5px solid #1e5d8e;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .timeline-year {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e5d8e;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .timeline-content {
+      margin-top: 1rem;
+    }
+
+    .achievement-badge {
+      background: #e7f1f9;
+      color: #1e5d8e;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* GALLERY */
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 1.5rem 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    .video-thumbnail {
+      position: relative;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(30, 93, 142, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .play-button:hover {
+      background: #1e5d8e;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* MEMORY CARDS */
+    .memory-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .memory-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .memory-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .memory-content {
+      padding: 1.5rem;
+    }
+
+    .memory-date {
+      color: #1e5d8e;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* UPLOAD AREA */
+    .upload-area {
+      background: #f8fbfe;
+      border: 3px dashed #1e5d8e;
+      border-radius: 30px;
+      padding: 4rem 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .upload-area.dragover {
+      background: #e7f1f9;
+      border-color: #123f5f;
+      transform: scale(1.02);
+    }
+
+    .upload-icon {
+      font-size: 4rem;
+      color: #1e5d8e;
+      margin-bottom: 1.5rem;
+    }
+
+    .upload-btn {
+      background: #1e5d8e;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin: 1rem 0;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .upload-btn:hover {
+      background: #123f5f;
+      transform: scale(1.05);
+    }
+
+    .file-info {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .preview-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .preview-item img,
+    .preview-item video {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .remove-file {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: rgba(220, 53, 69, 0.9);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      z-index: 20;
+    }
+
+    .remove-file:hover {
+      background: #dc3545;
+      transform: scale(1.1);
+    }
+
+    /* INFO PANEL */
     .info-panel {
       background: linear-gradient(125deg, #1b5279, #123b57);
       color: white;
@@ -174,11 +405,68 @@
       margin-top: 2rem;
     }
 
+    .social-icons a {
+      color: white;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      opacity: 0.8;
+      transform: translateY(-3px);
+    }
+
     .footer {
       background: #eef3f8;
       padding: 24px 0;
       text-align: center;
       color: #2b4c6b;
+    }
+
+    /* MODAL */
+    .modal-content {
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    #modalImage,
+    #modalVideo {
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    /* TOAST */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    .toast-custom {
+      background: white;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
     @media(max-width:768px){
@@ -191,19 +479,16 @@
       .section-title {
         font-size: 2rem;
       }
-      .trip-card {
-        padding: 25px;
-      }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR - exact copy from your files -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-      <img src="images/logo.jpg" alt="KingSTrips Logo">
+      <img src="images/logo.jpg" alt="KingSTrips Logo" onerror="this.src='https://via.placeholder.com/150x85?text=KingSTrips'">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
@@ -219,23 +504,23 @@
   </div>
 </nav>
 
-<!-- HERO SECTION - matching your page style -->
+<!-- HERO SECTION -->
 <section class="page-hero">
   <div class="container">
-    <h1>Our Upcoming Trips</h1>
-    <p class="lead">Professional group travel, school trips, and customised experiences</p>
+    <h1>Our Trips & Memories</h1>
+    <p class="lead">Past adventures, upcoming journeys, and beautiful moments captured</p>
   </div>
 </section>
 
-<!-- MAIN TRIPS SECTION -->
+<!-- UPCOMING TRIPS SECTION -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Available Group Tours</h2>
-    <p class="text-center text-muted mb-5">All trips include professional coordination, accommodation and a free KingSTrips T-shirt</p>
+    <h2 class="section-title">🎯 Upcoming Trips</h2>
+    <p class="section-subtitle">Join us on our next adventure - book your spot today!</p>
 
     <div class="row g-4">
       
-      <!-- NAMIBIA TRIP - exact info from index.html -->
+      <!-- NAMIBIA TRIP -->
       <div class="col-lg-6">
         <div class="trip-card">
           <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
@@ -269,14 +554,14 @@
             <li><i class="bi bi-tree"></i> Daan Viljoen Nature Reserve</li>
           </ul>
 
-          <a href="contact.html" class="btn btn-main mt-3">
+          <button class="btn btn-main mt-3" onclick="bookTrip('Namibia International Trip')">
             <i class="bi bi-check2-circle me-2"></i>Reserve Your Spot
-          </a>
-          <p class="small text-muted text-center mt-2">✨ Only 8 spots available - first come first served</p>
+          </button>
+          <p class="small text-muted text-center mt-2">✨ Only 8 spots available</p>
         </div>
       </div>
 
-      <!-- DURBAN TRIP - exact info from index.html -->
+      <!-- DURBAN TRIP -->
       <div class="col-lg-6">
         <div class="trip-card">
           <div class="mb-3">
@@ -310,44 +595,220 @@
             <p class="fw-bold text-primary">Price on request - contact us for group rates</p>
           </div>
 
-          <a href="contact.html" class="btn btn-main">
+          <button class="btn btn-main" onclick="bookTrip('Durban Experience')">
             <i class="bi bi-calendar-check me-2"></i>Book Durban Trip
-          </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY SECTION -->
+<section class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">📜 Our Journey & History</h2>
+    <p class="section-subtitle">From small beginnings to creating lifetime memories</p>
+
+    <div class="history-timeline">
+      
+      <div class="timeline-item" onclick="showYearDetails(2022)">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <h4 class="fw-bold">The Beginning</h4>
+          <p>KingSTrips was founded by Thulani Blessing Mathebula with a vision to create safe, affordable group travel experiences. Our first trip was a small school tour with just 15 students to Durban.</p>
+          <div>
+            <span class="achievement-badge">🎯 First trip: 15 travellers</span>
+            <span class="achievement-badge">📍 Durban</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item" onclick="showYearDetails(2023)">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <h4 class="fw-bold">Growing Fast</h4>
+          <p>Expanded to 5 successful trips including our first church group tour to Cape Town. Started getting recognition for professional service and attention to detail.</p>
+          <div>
+            <span class="achievement-badge">🏆 50+ happy travellers</span>
+            <span class="achievement-badge">📍 Cape Town</span>
+            <span class="achievement-badge">📍 Durban</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item" onclick="showYearDetails(2024)">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h4 class="fw-bold">First International Trip</h4>
+          <p>Successfully organised our first cross-border trip to Maputo, Mozambique. Started offering corporate retreats and team-building packages.</p>
+          <div>
+            <span class="achievement-badge">🌍 First international trip</span>
+            <span class="achievement-badge">📍 Maputo</span>
+            <span class="achievement-badge">💼 Corporate packages</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item" onclick="showYearDetails(2025)">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <h4 class="fw-bold">Major Milestone</h4>
+          <p>Reached 100+ happy travellers! Introduced our exclusive small-group international trips. Started the Namibia tours which became our most popular package.</p>
+          <div>
+            <span class="achievement-badge">🎉 100+ travellers</span>
+            <span class="achievement-badge">🇳🇦 Namibia tours</span>
+            <span class="achievement-badge">⭐ 4.8 star rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item" onclick="showYearDetails(2026)">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content">
+          <h4 class="fw-bold">Now & Beyond</h4>
+          <p>Planning bigger and better trips! Now offering 5+ major destinations, school trips, church tours, corporate retreats, and custom packages. Our community keeps growing.</p>
+          <div>
+            <span class="achievement-badge">🚀 5+ destinations</span>
+            <span class="achievement-badge">👥 Group specialist</span>
+            <span class="achievement-badge">🎓 School trips expert</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Additional Trip Info - matching your style -->
-    <div class="row mt-5 g-4">
-      <div class="col-md-4">
-        <div class="card border-0 bg-light p-4 rounded-4 h-100">
-          <i class="bi bi-bus-front fs-1 text-primary mb-3"></i>
-          <h5>School Trips</h5>
-          <p class="text-muted">Educational tours, grade camps and heritage visits. Custom dates available.</p>
-          <a href="contact.html" class="text-decoration-none">Enquire now →</a>
-        </div>
+    <!-- Stats Summary -->
+    <div class="row text-center mt-5 g-4">
+      <div class="col-md-3 col-6">
+        <h3 class="text-primary fw-bold">100+</h3>
+        <p class="text-muted">Happy Travellers</p>
       </div>
-      <div class="col-md-4">
-        <div class="card border-0 bg-light p-4 rounded-4 h-100">
-          <i class="bi bi-people fs-1 text-primary mb-3"></i>
-          <h5>Group & Leisure Tours</h5>
-          <p class="text-muted">Durban, Cape Town, Maputo and customised travel packages for groups.</p>
-          <a href="contact.html" class="text-decoration-none">Enquire now →</a>
-        </div>
+      <div class="col-md-3 col-6">
+        <h3 class="text-primary fw-bold">20+</h3>
+        <p class="text-muted">Successful Trips</p>
       </div>
-      <div class="col-md-4">
-        <div class="card border-0 bg-light p-4 rounded-4 h-100">
-          <i class="bi bi-briefcase fs-1 text-primary mb-3"></i>
-          <h5>Corporate & Church Trips</h5>
-          <p class="text-muted">Team-building retreats, conferences and organised outings.</p>
-          <a href="contact.html" class="text-decoration-none">Enquire now →</a>
+      <div class="col-md-3 col-6">
+        <h3 class="text-primary fw-bold">5+</h3>
+        <p class="text-muted">Destinations</p>
+      </div>
+      <div class="col-md-3 col-6">
+        <h3 class="text-primary fw-bold">4.8</h3>
+        <p class="text-muted">⭐ Star Rating</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO & VIDEO GALLERY -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">📸 Trip Memories Gallery</h2>
+    <p class="section-subtitle">Relive our past adventures - photos and videos from our trips</p>
+
+    <!-- Gallery Filter -->
+    <div class="text-center mb-4" id="galleryFilters">
+      <button class="btn btn-outline-main mx-1 mb-2 active" onclick="filterGallery('all')">All</button>
+      <button class="btn btn-outline-main mx-1 mb-2" onclick="filterGallery('photos')">Photos</button>
+      <button class="btn btn-outline-main mx-1 mb-2" onclick="filterGallery('videos')">Videos</button>
+      <button class="btn btn-outline-main mx-1 mb-2" onclick="filterGallery('durban')">Durban</button>
+      <button class="btn btn-outline-main mx-1 mb-2" onclick="filterGallery('capetown')">Cape Town</button>
+      <button class="btn btn-outline-main mx-1 mb-2" onclick="filterGallery('namibia')">Namibia</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="row g-4" id="galleryGrid">
+      <!-- Items will be populated by JavaScript -->
+    </div>
+
+    <!-- Memory Cards Row -->
+    <h3 class="fw-bold mt-5 mb-4">🌟 Traveller Moments</h3>
+    <div class="row" id="memoryCards">
+      <!-- Memory cards will be populated by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- UPLOAD YOUR MEMORIES SECTION -->
+<section class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">📤 Share Your Memories</h2>
+    <p class="section-subtitle">Travelled with us before? Upload your photos and videos to be featured!</p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="upload-area" id="uploadArea" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+          <div class="upload-icon">
+            <i class="bi bi-cloud-arrow-up-fill"></i>
+          </div>
+          <h4 class="fw-bold mb-3">Drag & drop your photos/videos here</h4>
+          <p class="text-muted mb-4">or click to browse from your computer</p>
+          
+          <input type="file" id="fileUpload" multiple accept="image/*,video/*" style="display: none;" onchange="handleFileSelect(this.files)">
+          <button class="upload-btn" onclick="document.getElementById('fileUpload').click()">
+            <i class="bi bi-folder2-open me-2"></i>Choose Files
+          </button>
+          
+          <p class="file-info mt-3">
+            <i class="bi bi-info-circle me-1"></i>
+            Supported: JPG, PNG, MP4, MOV (Max 50MB per file)
+          </p>
+          
+          <div class="mt-4 d-flex justify-content-center gap-3">
+            <span class="badge bg-white text-dark p-2"><i class="bi bi-camera me-1"></i>Photos</span>
+            <span class="badge bg-white text-dark p-2"><i class="bi bi-camera-reels me-1"></i>Videos</span>
+            <span class="badge bg-white text-dark p-2"><i class="bi bi-music-note me-1"></i>Stories</span>
+          </div>
+        </div>
+
+        <!-- Preview area -->
+        <div class="mt-4" id="previewArea" style="display: none;">
+          <h5 class="mb-3">Selected files:</h5>
+          <div class="row g-3" id="previewList"></div>
+          <button class="btn btn-main mt-3" onclick="uploadFiles()">
+            <i class="bi bi-send me-2"></i>Upload Memories
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- CONTACT INFO PANEL - matching your contact section style -->
-    <div class="info-panel text-center mt-5">
-      <h2 class="mb-4">Want to join a trip or customise your own?</h2>
+    <!-- Upload Tips -->
+    <div class="row mt-5 g-3">
+      <div class="col-md-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+          <div>
+            <h6 class="mb-1">Get Featured</h6>
+            <p class="small text-muted mb-0">Best photos get featured on our page</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+          <div>
+            <h6 class="mb-1">Tag Us</h6>
+            <p class="small text-muted mb-0">Use #KingSTrips on social media</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+          <div>
+            <h6 class="mb-1">Win Prizes</h6>
+            <p class="small text-muted mb-0">Photo of the month wins a discount</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFO PANEL -->
+<section class="section">
+  <div class="container">
+    <div class="info-panel text-center">
+      <h2 class="mb-4">Ready for your next adventure?</h2>
       <div class="row justify-content-center">
         <div class="col-md-8">
           <p class="fs-5 mb-4">
@@ -360,7 +821,6 @@
             <a href="mailto:mathebulathulani377@gmail.com" class="text-white text-decoration-none">mathebulathulani377@gmail.com</a>
           </p>
           
-          <!-- Social Icons - exactly as your contact page -->
           <div class="social-icons mt-3">
             <a href="https://wa.me/27647625369" target="_blank" class="text-white me-3" style="font-size: 28px;">
               <i class="fab fa-whatsapp"></i>
@@ -378,41 +838,271 @@
         </div>
       </div>
     </div>
-
-    <!-- Payment Info -->
-    <div class="text-center mt-5">
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="p-3">
-            <i class="bi bi-shield-check text-primary fs-2"></i>
-            <h6 class="mt-2">Safe & Professional</h6>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-3">
-            <i class="bi bi-wallet2 text-primary fs-2"></i>
-            <h6 class="mt-2">Flexible Payment Plans</h6>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-3">
-            <i class="bi bi-heart text-primary fs-2"></i>
-            <h6 class="mt-2">Lifetime Memories</h6>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- FOOTER - exact copy from your files -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <p>© 2026 KingSTrips (Pty) Ltd | All Rights Reserved</p>
   </div>
 </footer>
 
+<!-- MODAL for image/video preview -->
+<div class="modal fade" id="mediaModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img src="" id="modalImage" class="img-fluid" style="display: none;">
+        <video src="" id="modalVideo" class="img-fluid" controls style="display: none;"></video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST Container -->
+<div class="toast-container" id="toastContainer"></div>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Gallery Data
+  const galleryItems = [
+    { type: 'photo', location: 'durban', src: 'images/durban-beach.jpg', title: 'Durban Beach 2025', date: 'March 2025', locationName: 'South Beach' },
+    { type: 'photo', location: 'capetown', src: 'images/capetown-table.jpg', title: 'Table Mountain Tour', date: 'June 2025', locationName: 'Cape Town' },
+    { type: 'video', location: 'namibia', src: 'images/namibia-desert.jpg', videoSrc: 'videos/desert-drive.mp4', title: 'Desert Scenic Drive', date: 'Sep 2025', locationName: 'Namibia' },
+    { type: 'photo', location: 'durban', src: 'images/school-trip.jpg', title: 'Heritage School Tour', date: 'Aug 2025', locationName: 'Durban' },
+    { type: 'video', location: 'durban', src: 'images/boat-cruise.jpg', videoSrc: 'videos/boat-cruise.mp4', title: 'Sunset Boat Cruise', date: 'Dec 2025', locationName: 'Durban Harbour' },
+    { type: 'photo', location: 'namibia', src: 'images/windhoek.jpg', title: 'Windhoek City Tour', date: 'Sep 2025', locationName: 'Namibia' }
+  ];
+
+  const memoryCards = [
+    { src: 'images/memory1.jpg', date: 'October 2025', title: 'Durban Group 2025', text: '"Best trip ever! The boat cruise was amazing." - Thabo family' },
+    { src: 'images/memory2.jpg', date: 'August 2025', title: 'Riverside High Tour', text: '45 students, 5 teachers - an educational trip to remember' },
+    { src: 'images/memory3.jpg', date: 'April 2025', title: 'Grace Church Retreat', text: 'Team building and fellowship in the mountains' }
+  ];
+
+  let selectedFiles = [];
+
+  // Initialize gallery on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    renderGallery('all');
+    renderMemoryCards();
+  });
+
+  function renderGallery(filter) {
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
+    
+    const filtered = filter === 'all' ? galleryItems : galleryItems.filter(item => 
+      filter === 'photos' ? item.type === 'photo' :
+      filter === 'videos' ? item.type === 'video' :
+      item.location === filter
+    );
+    
+    filtered.forEach(item => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4';
+      
+      if (item.type === 'video') {
+        col.innerHTML = `
+          <div class="gallery-item video-thumbnail" onclick="playVideo('${item.videoSrc}')">
+            <img src="${item.src}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x300?text=${item.title}'">
+            <div class="play-button">
+              <i class="bi bi-play-fill"></i>
+            </div>
+            <div class="gallery-overlay">
+              <h5 class="mb-1">${item.title}</h5>
+              <p class="small mb-0">📍 ${item.locationName} · ${item.date}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        col.innerHTML = `
+          <div class="gallery-item" onclick="showImage('${item.src}', '${item.title}')">
+            <img src="${item.src}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/400x300?text=${item.title}'">
+            <div class="gallery-overlay">
+              <h5 class="mb-1">${item.title}</h5>
+              <p class="small mb-0">📍 ${item.locationName} · ${item.date}</p>
+            </div>
+          </div>
+        `;
+      }
+      grid.appendChild(col);
+    });
+  }
+
+  function renderMemoryCards() {
+    const container = document.getElementById('memoryCards');
+    container.innerHTML = '';
+    
+    memoryCards.forEach(card => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4';
+      col.innerHTML = `
+        <div class="memory-card">
+          <img src="${card.src}" alt="${card.title}" onerror="this.src='https://via.placeholder.com/400x250?text=${card.title}'">
+          <div class="memory-content">
+            <div class="memory-date"><i class="bi bi-calendar3 me-1"></i> ${card.date}</div>
+            <h5>${card.title}</h5>
+            <p class="small text-muted">${card.text}</p>
+          </div>
+        </div>
+      `;
+      container.appendChild(col);
+    });
+  }
+
+  function filterGallery(filter) {
+    // Update active button
+    document.querySelectorAll('#galleryFilters .btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    renderGallery(filter);
+  }
+
+  function showImage(src, title) {
+    const modal = new bootstrap.Modal(document.getElementById('mediaModal'));
+    document.getElementById('modalImage').style.display = 'block';
+    document.getElementById('modalVideo').style.display = 'none';
+    document.getElementById('modalImage').src = src;
+    modal.show();
+  }
+
+  function playVideo(src) {
+    const modal = new bootstrap.Modal(document.getElementById('mediaModal'));
+    document.getElementById('modalImage').style.display = 'none';
+    document.getElementById('modalVideo').style.display = 'block';
+    document.getElementById('modalVideo').src = src;
+    modal.show();
+    
+    // Auto-play when modal is shown
+    document.getElementById('mediaModal').addEventListener('shown.bs.modal', function () {
+      document.getElementById('modalVideo').play();
+    });
+  }
+
+  function bookTrip(tripName) {
+    showToast(`✅ Booking started for ${tripName}! We'll contact you soon.`);
+    setTimeout(() => {
+      window.location.href = `contact.html?trip=${encodeURIComponent(tripName)}`;
+    }, 2000);
+  }
+
+  function showYearDetails(year) {
+    showToast(`📅 Viewing ${year} highlights...`);
+  }
+
+  // Upload functionality
+  function handleDragOver(e) {
+    e.preventDefault();
+    document.getElementById('uploadArea').classList.add('dragover');
+  }
+
+  function handleDragLeave(e) {
+    e.preventDefault();
+    document.getElementById('uploadArea').classList.remove('dragover');
+  }
+
+  function handleDrop(e) {
+    e.preventDefault();
+    document.getElementById('uploadArea').classList.remove('dragover');
+    const files = e.dataTransfer.files;
+    handleFileSelect(files);
+  }
+
+  function handleFileSelect(files) {
+    for (let file of files) {
+      if (file.size > 50 * 1024 * 1024) {
+        showToast(`❌ ${file.name} is too large (max 50MB)`);
+        continue;
+      }
+      if (!file.type.match('image.*') && !file.type.match('video.*')) {
+        showToast(`❌ ${file.name} is not a supported file type`);
+        continue;
+      }
+      selectedFiles.push(file);
+    }
+    updatePreview();
+  }
+
+  function updatePreview() {
+    const previewArea = document.getElementById('previewArea');
+    const previewList = document.getElementById('previewList');
+    
+    if (selectedFiles.length > 0) {
+      previewArea.style.display = 'block';
+      previewList.innerHTML = '';
+      
+      selectedFiles.forEach((file, index) => {
+        const reader = new FileReader();
+        const col = document.createElement('div');
+        col.className = 'col-md-3 col-6';
+        
+        reader.onload = function(e) {
+          if (file.type.startsWith('image/')) {
+            col.innerHTML = `
+              <div class="preview-item">
+                <img src="${e.target.result}" alt="Preview">
+                <div class="remove-file" onclick="removeFile(${index})">×</div>
+              </div>
+            `;
+          } else {
+            col.innerHTML = `
+              <div class="preview-item">
+                <video src="${e.target.result}"></video>
+                <div class="remove-file" onclick="removeFile(${index})">×</div>
+              </div>
+            `;
+          }
+        };
+        reader.readAsDataURL(file);
+        previewList.appendChild(col);
+      });
+    } else {
+      previewArea.style.display = 'none';
+    }
+  }
+
+  function removeFile(index) {
+    selectedFiles.splice(index, 1);
+    updatePreview();
+  }
+
+  function uploadFiles() {
+    if (selectedFiles.length === 0) {
+      showToast('❌ No files selected');
+      return;
+    }
+    
+    showToast(`✅ ${selectedFiles.length} file(s) uploaded successfully! Our team will review and add to gallery.`);
+    selectedFiles = [];
+    updatePreview();
+    document.getElementById('fileUpload').value = '';
+  }
+
+  function showToast(message) {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast-custom';
+    toast.innerHTML = message;
+    container.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+
+  // Parse URL parameters for contact page
+  const urlParams = new URLSearchParams(window.location.search);
+  const tripParam = urlParams.get('trip');
+  if (tripParam) {
+    showToast(`✨ Ready to book ${tripParam}?`);
+  }
+</script>
+
 </body>
 </html>
