@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Trips | KingSTrips</title>
+
+  <!-- Bootstrap 5 + Icons + Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e2e3e;
+      background: #ffffff;
+    }
+
+    /* NAVBAR - exactly as your other pages */
+    .navbar {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      padding: 1.2rem 0;
+    }
+
+    .navbar-brand img {
+      height: 85px;
+      width: auto;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      margin-left: 1.5rem;
+      color: #1e3e55 !important;
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+    }
+
+    /* PAGE HERO - matches contact.html style */
+    .page-hero {
+      background: linear-gradient(rgba(10,30,45,0.75), rgba(10,30,45,0.75)),
+                  url('images/trips-bg.jpg') center/cover;
+      height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    /* SECTION STYLES - matching your index.html */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #1d3d5a;
+      text-align: center;
+    }
+
+    .trip-card {
+      background: #f6fafd;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .badge-exclusive {
+      background: #dc3545;
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
+    .price-main {
+      color: #1e5d8e;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .price-secondary {
+      color: #6c757d;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .feature-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #d5e3ec;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-list i {
+      color: #1e5d8e;
+      width: 1.5rem;
+    }
+
+    .btn-main {
+      background: #1e5d8e;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: white;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .btn-main:hover {
+      background: #123f5f;
+      color: white;
+    }
+
+    .btn-outline-main {
+      background: transparent;
+      border: 2px solid #1e5d8e;
+      color: #1e5d8e;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-main:hover {
+      background: #1e5d8e;
+      color: white;
+    }
+
+    .destination-badge {
+      background: white;
+      border-radius: 50px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    /* QUICK INFO SECTION - like your contact section but softer */
+    .info-panel {
+      background: linear-gradient(125deg, #1b5279, #123b57);
+      color: white;
+      border-radius: 48px;
+      padding: 3rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer {
+      background: #eef3f8;
+      padding: 24px 0;
+      text-align: center;
+      color: #2b4c6b;
+    }
+
+    @media(max-width:768px){
+      .navbar-brand img {
+        height: 65px;
+      }
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .trip-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR - exact copy from your files -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.jpg" alt="KingSTrips Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="trips.html">Trips</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION - matching your page style -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Our Upcoming Trips</h1>
+    <p class="lead">Professional group travel, school trips, and customised experiences</p>
+  </div>
+</section>
+
+<!-- MAIN TRIPS SECTION -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Available Group Tours</h2>
+    <p class="text-center text-muted mb-5">All trips include professional coordination, accommodation and a free KingSTrips T-shirt</p>
+
+    <div class="row g-4">
+      
+      <!-- NAMIBIA TRIP - exact info from index.html -->
+      <div class="col-lg-6">
+        <div class="trip-card">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+            <h3 class="fw-bold">🇳🇦 Namibia International Trip</h3>
+            <span class="badge-exclusive"><i class="bi bi-star-fill me-1"></i>Exclusive to 8 People</span>
+          </div>
+          
+          <p class="text-muted fs-5">
+            <i class="bi bi-calendar3 me-2"></i>📅 24 September 2026
+          </p>
+          
+          <div class="mb-4">
+            <div class="price-main">R13 530 <span class="fs-6 text-muted">Per Person</span></div>
+            <div class="price-secondary mt-1">R24 000 For 2 People</div>
+          </div>
+
+          <hr>
+
+          <h5 class="fw-semibold mb-3">What's included:</h5>
+          <ul class="feature-list">
+            <li><i class="bi bi-bus-front"></i> Transport to OR Tambo</li>
+            <li><i class="bi bi-airplane"></i> Return Flights</li>
+            <li><i class="bi bi-bus-front"></i> Transport to activities</li>
+            <li><i class="bi bi-building"></i> 3 Nights Accommodation</li>
+            <li><i class="bi bi-cup-hot"></i> Daily Breakfast</li>
+            <li><i class="bi bi-water"></i> Boat Cruise</li>
+            <li><i class="bi bi-tshirt"></i> Printed T-Shirt</li>
+            <li><i class="bi bi-building"></i> Windhoek City Tour</li>
+            <li><i class="bi bi-sun"></i> Desert Scenic Drive</li>
+            <li><i class="bi bi-shop"></i> Local Craft Market</li>
+            <li><i class="bi bi-tree"></i> Daan Viljoen Nature Reserve</li>
+          </ul>
+
+          <a href="contact.html" class="btn btn-main mt-3">
+            <i class="bi bi-check2-circle me-2"></i>Reserve Your Spot
+          </a>
+          <p class="small text-muted text-center mt-2">✨ Only 8 spots available - first come first served</p>
+        </div>
+      </div>
+
+      <!-- DURBAN TRIP - exact info from index.html -->
+      <div class="col-lg-6">
+        <div class="trip-card">
+          <div class="mb-3">
+            <h3 class="fw-bold">🌊 Durban Experience</h3>
+          </div>
+          
+          <p class="text-muted fs-5">
+            <i class="bi bi-calendar3 me-2"></i>📅 1 – 4 October 2026
+          </p>
+          
+          <div class="mb-4">
+            <span class="badge bg-primary bg-opacity-10 text-primary p-2 mb-2">4 Days / 3 Nights</span>
+          </div>
+
+          <hr>
+
+          <h5 class="fw-semibold mb-3">What's included:</h5>
+          <ul class="feature-list">
+            <li><i class="bi bi-bus-front"></i> Transport</li>
+            <li><i class="bi bi-building"></i> 3 Nights Accommodation</li>
+            <li><i class="bi bi-cup-hot"></i> Daily Breakfast</li>
+            <li><i class="bi bi-water"></i> Boat Cruise</li>
+            <li><i class="bi bi-tshirt"></i> Printed KingSTrips T-Shirt</li>
+            <li><i class="bi bi-building"></i> Durban Tour</li>
+            <li><i class="bi bi-moon"></i> Durban Night Life</li>
+            <li><i class="bi bi-umbrella"></i> South Beach Experience</li>
+            <li><i class="bi bi-shop"></i> Eyadini</li>
+          </ul>
+
+          <div class="mt-4 mb-3">
+            <p class="fw-bold text-primary">Price on request - contact us for group rates</p>
+          </div>
+
+          <a href="contact.html" class="btn btn-main">
+            <i class="bi bi-calendar-check me-2"></i>Book Durban Trip
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Trip Info - matching your style -->
+    <div class="row mt-5 g-4">
+      <div class="col-md-4">
+        <div class="card border-0 bg-light p-4 rounded-4 h-100">
+          <i class="bi bi-bus-front fs-1 text-primary mb-3"></i>
+          <h5>School Trips</h5>
+          <p class="text-muted">Educational tours, grade camps and heritage visits. Custom dates available.</p>
+          <a href="contact.html" class="text-decoration-none">Enquire now →</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 bg-light p-4 rounded-4 h-100">
+          <i class="bi bi-people fs-1 text-primary mb-3"></i>
+          <h5>Group & Leisure Tours</h5>
+          <p class="text-muted">Durban, Cape Town, Maputo and customised travel packages for groups.</p>
+          <a href="contact.html" class="text-decoration-none">Enquire now →</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 bg-light p-4 rounded-4 h-100">
+          <i class="bi bi-briefcase fs-1 text-primary mb-3"></i>
+          <h5>Corporate & Church Trips</h5>
+          <p class="text-muted">Team-building retreats, conferences and organised outings.</p>
+          <a href="contact.html" class="text-decoration-none">Enquire now →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT INFO PANEL - matching your contact section style -->
+    <div class="info-panel text-center mt-5">
+      <h2 class="mb-4">Want to join a trip or customise your own?</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="fs-5 mb-4">
+            <i class="bi bi-telephone-fill me-2"></i> Call: 
+            <a href="tel:0647625369" class="text-white text-decoration-none">064 762 5369</a> | 
+            <a href="tel:0672987440" class="text-white text-decoration-none">067 298 7440</a>
+          </p>
+          <p class="fs-5 mb-4">
+            <i class="bi bi-envelope-fill me-2"></i> Email: 
+            <a href="mailto:mathebulathulani377@gmail.com" class="text-white text-decoration-none">mathebulathulani377@gmail.com</a>
+          </p>
+          
+          <!-- Social Icons - exactly as your contact page -->
+          <div class="social-icons mt-3">
+            <a href="https://wa.me/27647625369" target="_blank" class="text-white me-3" style="font-size: 28px;">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.tiktok.com/@kingstrips" target="_blank" class="text-white me-3" style="font-size: 28px;">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.facebook.com/KingSTrips" target="_blank" class="text-white me-3" style="font-size: 28px;">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="mailto:mathebulathulani377@gmail.com" class="text-white" style="font-size: 28px;">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Info -->
+    <div class="text-center mt-5">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="p-3">
+            <i class="bi bi-shield-check text-primary fs-2"></i>
+            <h6 class="mt-2">Safe & Professional</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3">
+            <i class="bi bi-wallet2 text-primary fs-2"></i>
+            <h6 class="mt-2">Flexible Payment Plans</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3">
+            <i class="bi bi-heart text-primary fs-2"></i>
+            <h6 class="mt-2">Lifetime Memories</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER - exact copy from your files -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 KingSTrips (Pty) Ltd | All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
